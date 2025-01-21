@@ -23,18 +23,25 @@ ENV BASE_PATH="/runpod-volume" \
     HF_HOME="/runpod-volume/huggingface-cache/hub" \
     HF_HUB_ENABLE_HF_TRANSFER=1 
     
-# LLM Settings
+# LLM 
+# ## Tokiner Settings 
+# ENV TOKENIZER_NAME="your-tokenizer"
+# ENV TOKENIZER_REVISION="your-tokenizer-revision"
+
+## Model Settings
+ENV MODEL_NAME="Commercer/Llama-3.1-8B-Instruct-Tuned-not-4bit-Content-Creator"
+# ENV MODEL_REVISION="your-revision"
+
+## LoRA Settings
+ENV ENABLE_LORA = true
+ENV MAX_LORA_RANK = 64
+
+## Weights Settings
 ENV TRUST_REMOTE_CODE=true \
     LOAD_FORMAT="bitsandbytes" \
     MAX_MODEL_LEN=512 \
     QUANTIZATION="bitsandbytes"
-    
-# ENV ENABLE_LORA = true
-# ENV MAX_LORA_RANK = 64
-
-    
-ENV MODEL_NAME="unsloth/tinyllama-bnb-4bit"
-
+ENV DTYPE="bfloat16"
 
 
 # ENV MODEL_REVISION="your-revision"
@@ -45,13 +52,6 @@ ENV PYTHONPATH="/:/vllm-workspace"
 
 
 COPY src /src
-RUN --mount=type=secret,id=HF_TOKEN,required=false \
-    if [ -f /run/secrets/HF_TOKEN ]; then \
-        export HF_TOKEN=$(cat /run/secrets/HF_TOKEN); \
-    fi && \
-    if [ -n "$MODEL_NAME" ]; then \
-        python3 /src/download_model.py; \
-    fi
 
 # Start the handler
 CMD ["python3", "/src/handler.py"]
