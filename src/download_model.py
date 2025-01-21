@@ -67,7 +67,7 @@ def download(name, revision, type, cache_dir):
 #     rmtree("/".join(model_path.split("/")[:-2]))
 #     return serialized_uri, tensorizer_num_gpus, dtype
 
-def main():
+if __name__ == "__main__":
     setup_env()
     cache_dir = os.getenv("HF_HOME")
     model_name, model_revision = os.getenv("MODEL_NAME"), os.getenv("MODEL_REVISION") or None
@@ -98,6 +98,3 @@ def main():
     
     with open(f"{BASE_DIR}/local_model_args.json", "w") as f:
         json.dump({k: v for k, v in metadata.items() if v not in (None, "")}, f)
-
-if __name__ == "__main__":
-    main()
