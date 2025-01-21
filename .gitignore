@@ -3,6 +3,4 @@ runpod.toml
 *.pyc
 .env
 test/*
-dev/*
-tmp/*
 vllm-base/vllm-*
