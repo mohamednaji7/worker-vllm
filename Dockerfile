@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.1.0-base-ubuntu22.04 
+FROM nvidia/cuda:12.1.0-base-ubuntu22.04
 
 RUN apt-get update -y \
     && apt-get install -y python3-pip
@@ -20,6 +20,7 @@ RUN python3 -m pip install vllm==0.6.6.post1 && \
 
 ENV MODEL_NAME="unsloth/tinyllama-bnb-4bit" \
     BASE_PATH="/runpod-volume" \
+    LOAD_FORMAT="bitsandbytes" \
     QUANTIZATION="bitsandbytes" \
     HF_DATASETS_CACHE="/runpod-volume/huggingface-cache/datasets" \
     HUGGINGFACE_HUB_CACHE="/runpod-volume/huggingface-cache/hub" \
