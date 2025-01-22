@@ -17,7 +17,7 @@ ENGINE_REPO_URL = "https://github.com/mohamednaji7/worker-vllm.git"
 ENGINE_BRANCH = "vllm-engine-only"
 ENGINE_REPO_DIR = "./engine_repo"
 ENGINE_SRC_DIR = f"{ENGINE_REPO_DIR}/src"
-LOCAL_ENGINE_DIR = f"{os.getcwd()}/src/"
+LOCAL_ENGINE_DIR = f"{os.getcwd()}/"
 
 try:
     # Check if the source directory exists before cloning
