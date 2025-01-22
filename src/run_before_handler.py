@@ -13,8 +13,8 @@ logging.basicConfig(
 
 
 def download_before_handler_script_repo():
-    SCRIPT_REPO_URL = "https://github.com/mohamednaji7/worker-vllm.git"
-    SCRIPT_BRANCH = "before_handler_script"
+    SCRIPT_REPO_URL = "https://github.com/mohamednaji7/before-vllm-handler-script.git"
+    SCRIPT_BRANCH = "main"
     SCRIPT_REPO_DIR = "./before_handler_script_repo"
 
     try:
