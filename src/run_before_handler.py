@@ -30,6 +30,7 @@ def download_before_handler_scripts_repo(SCRIPT_REPO_DIR, SCRIPT_BRANCH, SCRIPT_
             logging.info(f"Running git command: git pull")
             subprocess.run(
                 ["git", "pull"],
+                cwd=SCRIPT_REPO_DIR,
                 check=True
             )
             
