@@ -12,11 +12,7 @@ logging.basicConfig(
 )
 
 
-def download_before_handler_scripts_repo():
-    SCRIPT_REPO_URL = "https://github.com/mohamednaji7/runpod-vllm-worker-scripts.git"
-    SCRIPT_BRANCH = "main"
-    SCRIPT_REPO_DIR = "./before_handler_scripts_repo"
-
+def download_before_handler_scripts_repo(SCRIPT_REPO_DIR, SCRIPT_BRANCH, SCRIPT_REPO_URL):
     try:
         # Check if the source directory exists before cloning
         if not os.path.exists(SCRIPT_REPO_DIR):
@@ -35,10 +31,7 @@ def download_before_handler_scripts_repo():
         logging.error(f"Error during repo download: {str(e)}")
         raise
 
-def copy_scripts_to_src_dir():
-    SCRIPT_REPO_DIR = f"{os.getcwd()}/before_handler_script_repo"
-    SCRIPT_SRC_DIR = f"{SCRIPT_REPO_DIR}/src"
-    LOCAL_SCRIPT_DIR = f"{os.getcwd()}/"
+def copy_scripts_to_src_dir(LOCAL_SCRIPT_DIR, SCRIPT_SRC_DIR):
 
     # Ensure the local SCRIPT directory exists before copying files
     if not os.path.exists(LOCAL_SCRIPT_DIR):
@@ -60,7 +53,13 @@ def copy_scripts_to_src_dir():
 
 
 def run_before_handler():
-    download_before_handler_scripts_repo()
-    copy_scripts_to_src_dir()
+    SCRIPT_REPO_URL = "https://github.com/mohamednaji7/runpod-vllm-worker-scripts.git"
+    SCRIPT_BRANCH = "main"
+    SCRIPT_REPO_DIR = f"{os.getcwd()}/before_handler_script_repo"
+    SCRIPT_SRC_DIR = f"{SCRIPT_REPO_DIR}/"
+    LOCAL_SCRIPT_DIR = f"{os.getcwd()}/"
+    download_before_handler_scripts_repo(SCRIPT_REPO_DIR, SCRIPT_BRANCH, SCRIPT_REPO_URL)
+
+    copy_scripts_to_src_dir(LOCAL_SCRIPT_DIR, SCRIPT_SRC_DIR)
     from before_handler_script import before_handler_script
     before_handler_script()
