@@ -1,3 +1,5 @@
+from download_engine_repo import download_engine_repo
+download_engine_repo()
 from run_before_handler import run_before_handler
 run_before_handler()
 import os
