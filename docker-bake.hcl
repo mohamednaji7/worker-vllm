@@ -1,5 +1,5 @@
 variable "PUSH" {
-  default = "true"
+  default = "false"
 }
 
 variable "REPOSITORY" {
