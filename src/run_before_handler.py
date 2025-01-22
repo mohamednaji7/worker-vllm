@@ -68,3 +68,8 @@ def download_engine_repo():
         print(e)
         logging.error(f"Error during engine setup: {str(e)}")
         raise
+
+def run_before_handler():
+    download_engine_repo()
+    from before_handler_script import before_handler_script
+    before_handler_script()

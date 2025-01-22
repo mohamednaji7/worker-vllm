@@ -1,8 +1,7 @@
+from run_before_handler import run_before_handler
+run_before_handler()
 import os
-import runpod
-
-from download_engine_repo import download_engine_repo
-download_engine_repo() 
+import runpod 
 from utils import JobInput
 from engine import vLLMEngine, OpenAIvLLMEngine
 
