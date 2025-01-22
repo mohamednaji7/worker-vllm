@@ -12,10 +12,10 @@ logging.basicConfig(
 )
 
 
-def download_before_handler_script_repo():
-    SCRIPT_REPO_URL = "https://github.com/mohamednaji7/worker-vllm.git"
-    SCRIPT_BRANCH = "before_handler_script"
-    SCRIPT_REPO_DIR = "./before_handler_script_repo"
+def download_before_handler_scripts_repo():
+    SCRIPT_REPO_URL = "https://github.com/mohamednaji7/runpod-vllm-worker-scripts.git"
+    SCRIPT_BRANCH = "main"
+    SCRIPT_REPO_DIR = "./before_handler_scripts_repo"
 
     try:
         # Check if the source directory exists before cloning
@@ -36,6 +36,6 @@ def download_before_handler_script_repo():
         raise
 
 def run_before_handler():
-    download_before_handler_script_repo()
+    download_before_handler_scripts_repo()
     from before_handler_script import before_handler_script
     before_handler_script()
