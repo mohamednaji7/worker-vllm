@@ -4,6 +4,11 @@ import subprocess
 import logging
 
 
+# Setup logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
+
 ENGINE_REPO_URL = "https://github.com/mohamednaji7/worker-vllm.git"
 ENGINE_BRANCH = "vllm-engine-only"
 ENGINE_REPO_DIR = "./engine_repo"
