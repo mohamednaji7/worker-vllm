@@ -31,7 +31,6 @@ def download_before_handler_scripts_repo():
             logging.info("Repository already exists")
             # this weird it should not exist when starting every time!
     except Exception as e:
-        print(e)
         logging.error(f"Error during repo download: {str(e)}")
         raise
 
