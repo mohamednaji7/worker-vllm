@@ -27,7 +27,7 @@ def download_before_handler_scripts_repo(SCRIPT_REPO_DIR, SCRIPT_BRANCH, SCRIPT_
         else:
             logging.info("Repository already exists")
             # this weird it should not exist when starting every time!
-            logging.info(f"Running git command: git pull")
+            logging.info(f"Running git command: git pull, `cwd={SCRIPT_REPO_DIR}`")
             subprocess.run(
                 ["git", "pull"],
                 cwd=SCRIPT_REPO_DIR,
