@@ -3,14 +3,6 @@ import shutil
 import subprocess
 import logging
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('engine_setup.log'),
-        logging.StreamHandler()
-    ]
-)
 
 ENGINE_REPO_URL = "https://github.com/mohamednaji7/worker-vllm.git"
 ENGINE_BRANCH = "vllm-engine-only"
@@ -34,7 +26,6 @@ try:
             else:
                 shutil.copy2(src_path, dest_path)
         
-        shutil.rmtree(ENGINE_REPO_DIR)
         logging.info("Engine setup completed successfully")
     else:
         logging.info("Repository already exists")
