@@ -36,7 +36,7 @@ def download_before_handler_scripts_repo():
         raise
 
 def copy_scripts_to_src_dir():
-    SCRIPT_REPO_DIR = "./before_handler_script_repo"
+    SCRIPT_REPO_DIR = f"os.getcwd()/before_handler_script_repo"
     SCRIPT_SRC_DIR = f"{SCRIPT_REPO_DIR}/src"
     LOCAL_SCRIPT_DIR = f"{os.getcwd()}/"
 
