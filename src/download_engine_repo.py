@@ -11,8 +11,7 @@ ENGINE_SRC_DIR = f"{ENGINE_REPO_DIR}/src"
 LOCAL_ENGINE_DIR = "./src/"
 
 try:
-    # if not os.path.exists(ENGINE_REPO_DIR):
-    if True:
+    if not os.path.exists(ENGINE_REPO_DIR):
         logging.info("Starting repository clone")
         subprocess.run(
             ["git", "clone", "-b", ENGINE_BRANCH, ENGINE_REPO_URL, ENGINE_REPO_DIR],
