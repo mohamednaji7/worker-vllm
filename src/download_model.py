@@ -98,3 +98,4 @@ if __name__ == "__main__":
     
     with open(f"{BASE_DIR}/local_model_args.json", "w") as f:
         json.dump({k: v for k, v in metadata.items() if v not in (None, "")}, f)
+        
