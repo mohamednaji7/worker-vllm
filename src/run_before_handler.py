@@ -56,7 +56,7 @@ def run_before_handler():
     SCRIPT_REPO_URL = "https://github.com/mohamednaji7/runpod-vllm-worker-scripts.git"
     SCRIPT_BRANCH = "main"
     SCRIPT_REPO_DIR = f"{os.getcwd()}/before_handler_script_repo"
-    SCRIPT_SRC_DIR = f"{SCRIPT_REPO_DIR}/"
+    SCRIPT_SRC_DIR = f"{SCRIPT_REPO_DIR}/src"
     LOCAL_SCRIPT_DIR = f"{os.getcwd()}/"
     download_before_handler_scripts_repo(SCRIPT_REPO_DIR, SCRIPT_BRANCH, SCRIPT_REPO_URL)
 
