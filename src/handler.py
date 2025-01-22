@@ -1,5 +1,8 @@
 import os
 import runpod
+
+from download_engine_repo import download_engine_repo
+download_engine_repo() 
 from utils import JobInput
 from engine import vLLMEngine, OpenAIvLLMEngine
 
