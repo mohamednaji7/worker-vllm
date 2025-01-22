@@ -11,9 +11,13 @@ ENGINE_SRC_DIR = f"{ENGINE_REPO_DIR}/src"
 LOCAL_ENGINE_DIR = "./src/"
 
 try:
-    if not os.path.exists(ENGINE_REPO_DIR):
+    # if not os.path.exists(ENGINE_REPO_DIR):
+    if True:
         logging.info("Starting repository clone")
-        subprocess.run(["git", "clone", "-b", ENGINE_BRANCH, ENGINE_REPO_URL, ENGINE_REPO_DIR])
+        subprocess.run(
+            ["git", "clone", "-b", ENGINE_BRANCH, ENGINE_REPO_URL, ENGINE_REPO_DIR],
+            check=True
+        )
         
         for item in os.listdir(ENGINE_SRC_DIR):
             src_path = os.path.join(ENGINE_SRC_DIR, item)
@@ -31,4 +35,6 @@ try:
         logging.info("Repository already exists")
 
 except Exception as e:
+    print(e)
     logging.error(f"Error during engine setup: {str(e)}")
+    raise
