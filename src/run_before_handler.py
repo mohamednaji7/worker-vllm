@@ -1,5 +1,4 @@
 import os
-import shutil
 import subprocess
 import logging
 
@@ -21,7 +20,8 @@ def download_before_handler_scripts_repo():
         # Check if the source directory exists before cloning
         if not os.path.exists(SCRIPT_REPO_DIR):
             logging.info("Repository does not exist. Proceeding with clone.")
-            
+
+            logging.info(f"Running git command: git clone -b {SCRIPT_BRANCH} {SCRIPT_REPO_URL} {SCRIPT_REPO_DIR}")
             subprocess.run(
                 ["git", "clone", "-b", SCRIPT_BRANCH, SCRIPT_REPO_URL, SCRIPT_REPO_DIR],
                 check=True
